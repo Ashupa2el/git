@@ -1,0 +1,228 @@
+# --------------------------------------------------
+# STEP 1: Go to the parent Coding directory
+# This is where all your projects will live
+# --------------------------------------------------
+cd "D:\Ashu\OneDrive\Desktop\The Directory\Coding"
+
+
+# --------------------------------------------------
+# STEP 2: Create a new project folder (Git repo)
+# Change 'my-project' to any name you like
+# --------------------------------------------------
+mkdir my-project
+
+
+# --------------------------------------------------
+# STEP 3: Enter the project folder
+# All Git commands now apply ONLY to this folder
+# --------------------------------------------------
+cd my-project
+
+
+# --------------------------------------------------
+# STEP 4: Initialize Git
+# This creates the hidden .git folder
+# --------------------------------------------------
+git init
+
+
+# --------------------------------------------------
+# STEP 5: Check Git status
+# Shows branch, commits, and file state
+# --------------------------------------------------
+git status
+
+
+# --------------------------------------------------
+# STEP 6: Create a file (example)
+# Git tracks files, not empty folders
+# --------------------------------------------------
+notepad README.md
+# (write something, save, close)
+
+
+# --------------------------------------------------
+# STEP 7: Check status again
+# README.md will appear as "untracked"
+# --------------------------------------------------
+git status
+
+
+# --------------------------------------------------
+# STEP 8: Stage the file
+# Moves file to staging area
+# --------------------------------------------------
+git add README.md
+# OR stage everything:
+# git add .
+
+
+# --------------------------------------------------
+# STEP 9: Commit staged files
+# Creates a snapshot with a commit ID
+# --------------------------------------------------
+git commit -m "Initial commit"
+
+
+# --------------------------------------------------
+# STEP 10: View commit history
+# Shows commit IDs and messages
+# --------------------------------------------------
+git log --oneline
+
+
+# --------------------------------------------------
+# STEP 11: Create an EMPTY GitHub repository
+# (Do this on GitHub website)
+# - Same name as folder (my-project)
+# - NO README
+# - NO .gitignore
+# - NO license
+# --------------------------------------------------
+
+
+# --------------------------------------------------
+# STEP 12: Add GitHub as remote (manual connection)
+# Replace YOUR_USERNAME with your GitHub username
+# --------------------------------------------------
+git remote add origin https://github.com/YOUR_USERNAME/my-project.git
+
+
+# --------------------------------------------------
+# STEP 13: Verify remote connection
+# Shows fetch & push URLs
+# --------------------------------------------------
+git remote -v
+
+
+# --------------------------------------------------
+# STEP 14: Check current branch name
+# Usually 'main' or 'master'
+# --------------------------------------------------
+git branch
+
+
+# --------------------------------------------------
+# STEP 15: Push local commits to GitHub (first time)
+# Use ONLY the command that matches your branch
+# --------------------------------------------------
+
+# If branch is main:
+git push -u origin main
+
+# If branch is master:
+# git push -u origin master
+
+
+# --------------------------------------------------
+# STEP 16: Daily workflow (after setup)
+# --------------------------------------------------
+# git status        -> see changes
+# git add .         -> stage changes
+# git commit -m ""  -> save snapshot
+# git push          -> upload to GitHub
+
+# ==================================================
+# GIT BASICS + BRANCHING (REFERENCE SHEET)
+# Base directory:
+# D:\Ashu\OneDrive\Desktop\The Directory\Coding
+# ==================================================
+
+### Switching the Branch in Git ### A magic moment ###
+
+# --------------------------------------------------
+# STEP 1: Go to Coding directory
+# --------------------------------------------------
+cd "D:\Ashu\OneDrive\Desktop\The Directory\Coding"
+
+
+# --------------------------------------------------
+# STEP 2: Enter your Git project folder
+# (example: git)
+# --------------------------------------------------
+cd git
+
+
+# --------------------------------------------------
+# STEP 3: Check current Git state
+# Shows branch, cleanliness, changes
+# --------------------------------------------------
+git status
+
+
+# --------------------------------------------------
+# STEP 4: Create a new branch
+# This creates a new POINTER at current commit
+# Does NOT switch to it
+# --------------------------------------------------
+git branch feature-1
+
+
+# --------------------------------------------------
+# STEP 5: Switch to the new branch (THE MAGIC)
+# HEAD now points to feature-1
+# Files change to match that branch's commit
+# --------------------------------------------------
+git switch feature-1
+# (older Git: git checkout feature-1)
+
+
+# --------------------------------------------------
+# STEP 6: Verify current branch
+# * indicates the active branch
+# --------------------------------------------------
+git branch
+
+
+# --------------------------------------------------
+# STEP 7: Make changes on this branch
+# (example file edit)
+# --------------------------------------------------
+notepad test.txt
+# add text, save, close
+
+
+# --------------------------------------------------
+# STEP 8: Check status on this branch
+# Changes exist ONLY on feature-1
+# --------------------------------------------------
+git status
+
+
+# --------------------------------------------------
+# STEP 9: Stage changes
+# Select what will go into the commit
+# --------------------------------------------------
+git add test.txt
+# or: git add .
+
+
+# --------------------------------------------------
+# STEP 10: Commit changes on feature-1
+# Branch pointer moves forward
+# --------------------------------------------------
+git commit -m "Update test.txt on feature-1"
+
+
+# --------------------------------------------------
+# STEP 11: Switch back to main branch
+# Files revert to main branch snapshot
+# (THIS IS THE WOW MOMENT)
+# --------------------------------------------------
+git switch main
+
+
+# --------------------------------------------------
+# STEP 12: Open file again to observe difference
+# You will NOT see feature-1 changes here
+# --------------------------------------------------
+notepad test.txt
+
+
+# --------------------------------------------------
+# STEP 13: Mental model reminder
+# --------------------------------------------------
+# - Commits store files
+# - Branches point to commits
+# - Switching branches = switching commits
+# - Git rewrites files safely
